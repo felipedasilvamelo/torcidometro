@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-//colocar ícone do perfil do time em cima da barrinha. 
+
 
 // Widget do gráfico.
 class GraphWidget extends StatelessWidget {
@@ -17,7 +17,7 @@ class GraphWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0), // Adiciona espaçamento horizontal ao gráfico.
+        padding: const EdgeInsets.symmetric(horizontal: 16.0), 
         child: BarChart(
           BarChartData(
             // Define o valor máximo do eixo Y como o total de votos (ou 1, se não houver votos).
@@ -31,7 +31,7 @@ class GraphWidget extends StatelessWidget {
                   BarChartRodData(
                     toY: count.toDouble(), // Altura da barra.
                     width: 20, // Largura da barra.
-                    color: Colors.teal, // Cor da barra.
+                    color: Colors.teal, 
                     borderSide: const BorderSide(
                       color: Colors.black,
                       width: 2.0, // Borda da barra.
@@ -103,8 +103,8 @@ class ButtonsWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => adicionarVoto(time), // Adiciona um voto ao time.
                 child: Text(
-                  'Votar no $time', // Texto do botão exibindo o nome do time.
-                  style: const TextStyle(color: Colors.black), // Define a cor do texto do botão.
+                  time, // Texto do botão exibindo o nome do time.
+                  style: const TextStyle(color: Colors.black), 
                 ),
               ),
             );
@@ -113,10 +113,10 @@ class ButtonsWidget extends StatelessWidget {
           // Botões para editar votos.
           ...votos.keys.map((time) {
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0), // Define o espaçamento entre os botões.
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0), 
               child: OutlinedButton(
                 onPressed: () => editarVotos(time), // Chama a função para editar votos.
-                child: Text('Editar votos de $time'), // Texto do botão.
+                child: Text('Editar votos do $time'),
               ),
             );
           }),
@@ -126,12 +126,12 @@ class ButtonsWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0), // Define espaçamento ao redor do botão.
             child: ElevatedButton(
               onPressed: limparVotacao, // Chama a função para limpar os votos.
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.red), // Estilo do botão.
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red), 
               child: const Text(
-                'Limpar votação', // Texto do botão.
+                'Limpar votação',
                 style: TextStyle(
-                  color: Colors.white, // Cor do texto do botão.
-                  fontSize: 20, // Tamanho da fonte do botão.
+                  color: Colors.white, 
+                  fontSize: 20, 
                 ),
               ),
             ),

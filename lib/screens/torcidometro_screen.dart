@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:torcidometro/components/graph_and_buttons.dart'; 
-// Importa os widgets personalizados usados na tela (gráfico e botões).
+
 
 class TorcidometroScreen extends StatefulWidget {
   // Define a tela principal do Torcidômetro, que pode ter estado (stateful).
-  const TorcidometroScreen({Key? key}) : super(key: key);
+  const TorcidometroScreen({super.key});
 
   @override
   State<TorcidometroScreen> createState() => _TorcidometroScreenState();
@@ -16,9 +16,9 @@ class _TorcidometroScreenState extends State<TorcidometroScreen> {
 
   // Mapa para armazenar os votos de cada opção (time ou empate).
   Map<String, int> votos = {
-    'Vitória do Time A': 0, // Time A começa com 0 votos.
-    'Vitória do Time B': 0, // Time B começa com 0 votos.
-    'Empate': 0, // Empate começa com 0 votos.
+    'Time A': 0, 
+    'Time B': 0, 
+    'Empate': 0, 
   };
 
   bool mostrarGrafico = true; 
@@ -101,35 +101,35 @@ class _TorcidometroScreenState extends State<TorcidometroScreen> {
     int totalVotos = votos.values.fold(0, (soma, elemento) => soma + elemento);
 
     return Scaffold(
-      // Estrutura principal da tela.
+    
       appBar: AppBar(
-        // Barra superior com título.
+        
         title: const Text('Torcidômetro'), 
-        // Título exibido na AppBar.
+      
         backgroundColor: const Color.fromARGB(255, 63, 145, 66), 
-        // Cor de fundo da AppBar.
+     
         centerTitle: true, 
-        // Centraliza o título.
+      
         titleTextStyle: const TextStyle(
           color: Colors.white, 
-          // Cor do texto do título.
+         
           fontSize: 30, 
-          // Tamanho da fonte do título.
+        
         ),
       ),
       body: Column(
-        // Coluna para organizar os elementos na tela.
+        
         children: [
           const SizedBox(height: 20), 
-          // Adiciona um espaço vertical acima do conteúdo.
+          
 
           Row(
             // Linha para organizar o texto e o botão `Switch`.
             mainAxisAlignment: MainAxisAlignment.center, 
-            // Centraliza os itens horizontalmente.
+          
             children: [
               const Text('Mostrar Gráfico:'), 
-              // Texto ao lado do `Switch`.
+              
               Switch(
                 value: mostrarGrafico, 
                 // Estado do `Switch`.
@@ -152,13 +152,13 @@ class _TorcidometroScreenState extends State<TorcidometroScreen> {
                   // Exibe a lista com os resultados em um formato alternativo.
                   child: Padding(
                     padding: const EdgeInsets.all(16.0), 
-                    // Adiciona espaçamento ao redor da lista.
+                    
                     child: ListView(
                       // Lista para exibir os resultados.
                       children: votos.entries.map((entry) {
                         // Percorre as entradas do mapa.
                         return ListTile(
-                          // Widget que organiza o conteúdo em uma linha.
+                          
                           title: Text(
                             entry.key, 
                             // Nome do time.
@@ -170,9 +170,9 @@ class _TorcidometroScreenState extends State<TorcidometroScreen> {
                             // Número de votos ao lado direito.
                             style: const TextStyle(
                               fontWeight: FontWeight.bold, 
-                              // Texto em negrito.
+                             
                               fontSize: 16, 
-                              // Tamanho da fonte.
+                              
                             ),
                           ),
                         );
@@ -182,10 +182,10 @@ class _TorcidometroScreenState extends State<TorcidometroScreen> {
                 ),
 
           const Divider(), 
-          // Linha divisória entre os widgets.
+        
 
           ButtonsWidget(
-            // Widget que exibe os botões.
+            
             votos: votos, 
             // Passa o mapa de votos.
             adicionarVoto: adicionarVoto, 
